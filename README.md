@@ -1,6 +1,26 @@
 # Terraform Module to Launch an AKeyless Gateway in ECS
 
-This terraform module will launch an ECS cluster, service, task, and load balancer to create an AKeyless gateway.  Note that AKeyless publishes has great support for [running gateways on K8s](https://docs.akeyless.io/docs/deploy-the-api-gateway-on-kubernetes) via helm charts, so you may prefer that.  The only reason I can think of to use this module is if you're not already invested in K8s and/or don't want to pay per-cluster administrative fee from AWS (~$72/month/cluster) for a new cluster.
+This terraform module will launch an ECS cluster, service, task, and load balancer to create an AKeyless gateway.  Note that AKeyless has great support for [running gateways on K8s](https://docs.akeyless.io/docs/deploy-the-api-gateway-on-kubernetes) via helm charts, so you may prefer that.  The only reason I can think of to use this module is if you're not already invested in K8s and/or don't want to pay per-cluster administrative fee from AWS (~$72/month/cluster) for a new cluster.
+
+## Usage
+
+```
+module "akeyless_gateway" {
+  source = "git::https://github.com/cmancone/akeyless-gateway-ecs.git"
+
+  name = "my_gateway"
+  vpc_id = "vpc-123456789"
+  public_subnet_ids = ["subnet-123456789", "subnet-987654321"]
+  private_subnet_ids = ["subnet-abcdefgh", "subnet-hgfedcba"]
+  route_53_hosted_zone_name = "subdomain.example.com"
+  domain_name = "gateway.subdomain.example.com"
+  iam_role_arn = "arn:aws:iam::account:role/role-name-with-path"
+  admin_access_id = "p-123456789"
+  allowed_access_ids = "p-987654321"
+}
+```
+
+For the admin access id, your best bet will be to create a AWS IAM auth method in AKeyless that is associated with the IAM role ARN you attach to the gateway, and then use its access id as your `admin_access_id`.
 
 ## Inputs
 
