@@ -3,7 +3,7 @@ resource "aws_ecs_cluster" "gateway" {
 
   setting {
     name  = "containerInsights"
-    value = true
+    value = "enabled"
   }
 
   tags = var.tags
@@ -81,7 +81,7 @@ resource "aws_cloudwatch_log_group" "gateway" {
 # incoming rules to allow traffic from the load balancer to the tasks are set in
 # ./lb_listener/main.tf
 resource "aws_security_group" "ecs_tasks" {
-  name        = var.name
+  name        = "${var.name}-ecs-tasks"
   description = "Security group for the ${var.name} ECS Tasks"
   vpc_id      = var.vpc_id
 }

@@ -33,7 +33,7 @@ module "lb_listener" {
 }
 
 resource "aws_security_group" "lb" {
-  name        = var.name
+  name        = "${var.name}-lb"
   description = "Security group for the ${var.name} ALB"
   vpc_id      = var.vpc_id
 }
