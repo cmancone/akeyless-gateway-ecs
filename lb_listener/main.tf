@@ -6,7 +6,7 @@ resource "aws_lb_target_group" "http" {
   target_type = "ip"
 
   tags = merge(var.tags, {
-    Name = "${var.name}-{$var.container_port}"
+    Name = "${var.name}-${var.container_port}"
   })
 }
 
