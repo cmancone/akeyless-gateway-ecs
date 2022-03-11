@@ -10,7 +10,9 @@ resource "aws_lb" "gateway" {
   tags                             = var.tags
 
   access_logs {
-    bucket = (var.alb_access_logs_bucket_name != null && var.alb_access_logs_bucket_name != "") ? var.alb_access_logs_bucket_name : null
+    bucket  = (var.alb_access_logs_bucket_name != null && var.alb_access_logs_bucket_name != "") ? var.alb_access_logs_bucket_name : "no-op"
+    prefix  = "${var.region}/${var.name}"
+    enabled = (var.alb_access_logs_bucket_name != null && var.alb_access_logs_bucket_name != "") ? true : false
   }
 }
 
