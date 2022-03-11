@@ -13,6 +13,11 @@ variable "name" {
   }
 }
 
+variable "region" {
+  type        = string
+  description = "The region that the infrastructure is destined for"
+}
+
 ################
 ## Networking ##
 ################

@@ -9,6 +9,7 @@ module "akeyless_gateway" {
   source = "git::https://github.com/cmancone/akeyless-gateway-ecs.git"
 
   name = "my_gateway"
+  region = "us-east-1"
   vpc_id = "vpc-123456789"
   public_subnet_ids = ["subnet-123456789", "subnet-987654321"]
   private_subnet_ids = ["subnet-abcdefgh", "subnet-hgfedcba"]
@@ -27,6 +28,7 @@ For the admin access id, your best bet will be to create a AWS IAM auth method i
 | Name                               | Required | Type            | Default Value                                                    | Example                                                    | Notes |
 |------------------------------------|----------|-----------------|------------------------------------------------------------------|------------------------------------------------------------|-------|
 | name                               | Yes      | string          |                                                                  | `"my_gateway"`                                             | Also used as the name for the gateway in AKeyless |
+| region                             | Yes      | string          |                                                                  | `"us-east-1"`                                              | The region to use |
 | vpc_id                             | Yes      | string          |                                                                  | `"vpc-123456789"`                                          | The VPC to place the infrastructure in |
 | public_subnet_ids                  | Yes      | list of strings |                                                                  | `["subnet-123456789", "subnet-abcdefgh"]`                  | The subnets to place the load balancer in |
 | private_subnet_ids                 | Yes      | list of strings |                                                                  | `["subnet-123456789", "subnet-abcdefgh"]`                  | The subnets to place the ECS tasks in |
