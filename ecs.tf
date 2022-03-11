@@ -28,9 +28,9 @@ resource "aws_ecs_service" "gateway" {
   dynamic "load_balancer" {
     for_each = module.lb_listener[*]
     content {
-      target_group_arn = load_balancer.value["target_group_arn"]
+      target_group_arn = load_balancer.value.target_group_arn
       container_name   = var.name
-      container_port   = load_balancer.value["container_port"]
+      container_port   = load_balancer.value.container_port
     }
   }
 
