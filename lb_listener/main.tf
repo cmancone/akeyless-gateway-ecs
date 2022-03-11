@@ -1,5 +1,5 @@
 resource "aws_lb_target_group" "http" {
-  name        = "${var.name}-{$var.container_port}"
+  name        = "${var.name}-${var.container_port}"
   port        = var.container_port
   protocol    = "HTTP"
   vpc_id      = var.vpc_id

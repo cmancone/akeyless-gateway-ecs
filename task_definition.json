@@ -48,10 +48,10 @@
     "name": "${name}",
     "image": "akeyless/base",
     "environment": [
-        { "name" : "CLUSTER_URL", "value" : "https://${var.domain_name}:8000" },
-        { "name" : "CLUSTER_NAME", "value" : "${var.name}" },
-        { "name" : "ADMIN_ACCESS_ID", "value" : "${var.admin_access_id}" },
-        { "name" : "ALLOWED_ACCESS_IDS", "value" : "${var.allowed_access_ids}" },
+        { "name" : "CLUSTER_URL", "value" : "https://$domain_name}:8000" },
+        { "name" : "CLUSTER_NAME", "value" : "${name}" },
+        { "name" : "ADMIN_ACCESS_ID", "value" : "${admin_access_id}" },
+        { "name" : "ALLOWED_ACCESS_IDS", "value" : "${allowed_access_ids}" },
     ],
     "logConfiguration": {
       "logDriver": "awslogs",
