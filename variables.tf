@@ -3,7 +3,7 @@ variable "name" {
   description = "The name of the infrastructure"
 
   validation {
-    condition     = length(var.name) > 32
+    condition     = length(var.name) < 32
     error_message = "The name must be 32 characters or less to comply with ALB naming requirements."
   }
 
