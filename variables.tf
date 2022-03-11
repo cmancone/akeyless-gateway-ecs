@@ -103,4 +103,5 @@ variable "ssl_policy" {
 variable "tags" {
   type        = map(string)
   description = "Tags to apply to all relevant pieces of infrastructure"
+  default     = {}
 }

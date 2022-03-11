@@ -59,3 +59,8 @@ variable "ssl_policy" {
   description = "The AWS SSL policy to use"
   default     = "ELBSecurityPolicy-TLS-1-2-2017-01"
 }
+
+variable "tags" {
+  type        = map(string)
+  description = "Tags to apply to all relevant pieces of infrastructure"
+}

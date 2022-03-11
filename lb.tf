@@ -4,7 +4,7 @@ resource "aws_lb" "gateway" {
   enable_cross_zone_load_balancing = true
   idle_timeout                     = "60"
   load_balancer_type               = "application"
-  security_groups                  = [aws_security_group.alb.id]
+  security_groups                  = [aws_security_group.lb.id]
   subnets                          = var.public_subnet_ids
   enable_deletion_protection       = false
   tags                             = var.tags
@@ -27,6 +27,7 @@ module "lb_listener" {
   ssl_policy                  = var.ssl_policy
   lb_security_group_id        = aws_security_group.lb.id
   ecs_tasks_security_group_id = aws_security_group.ecs_tasks.id
+  tags                        = var.tags
 }
 
 resource "aws_security_group" "lb" {
