@@ -51,7 +51,9 @@
         { "name" : "CLUSTER_URL", "value" : "https://$domain_name}:8000" },
         { "name" : "CLUSTER_NAME", "value" : "${name}" },
         { "name" : "ADMIN_ACCESS_ID", "value" : "${admin_access_id}" },
-        { "name" : "ALLOWED_ACCESS_IDS", "value" : "${allowed_access_ids}" }
+        { "name" : "ALLOWED_ACCESS_IDS", "value" : "${allowed_access_ids}" },
+        { "name" : "ADMIN_ACCESS_KEY", "value" : "${admin_access_key}" },
+        { "name" : "ADMIN_PASSWORD", "value" : "${admin_password}" },
     ],
     "logConfiguration": {
       "logDriver": "awslogs",

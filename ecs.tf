@@ -46,6 +46,8 @@ data "template_file" "container_definitions" {
     domain_name        = var.domain_name
     admin_access_id    = var.admin_access_id
     allowed_access_ids = var.allowed_access_ids
+    admin_access_key   = var.admin_access_key
+    admin_password     = var.admin_password
   }
 }
 
