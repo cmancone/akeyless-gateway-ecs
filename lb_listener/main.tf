@@ -5,6 +5,10 @@ resource "aws_lb_target_group" "http" {
   vpc_id      = var.vpc_id
   target_type = "ip"
 
+  health_check {
+    enabled = false
+  }
+
   tags = merge(var.tags, {
     Name = "${var.name}-${var.container_port}"
   })
