@@ -6,7 +6,11 @@ resource "aws_lb_target_group" "http" {
   target_type = "ip"
 
   health_check {
-    enabled = false
+    enabled             = true
+    interval            = 120
+    port                = 8000
+    healthy_threshold   = 1
+    unhealthy_threshold = 3
   }
 
   tags = merge(var.tags, {
