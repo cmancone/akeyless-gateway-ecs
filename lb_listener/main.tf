@@ -9,7 +9,7 @@ resource "aws_lb_target_group" "http" {
     enabled             = true
     interval            = 120
     port                = 8000
-    healthy_threshold   = 1
+    healthy_threshold   = 2
     unhealthy_threshold = 3
   }
 
