@@ -7,7 +7,7 @@ resource "aws_lb_target_group" "http" {
 
   health_check {
     enabled             = true
-    interval            = 120
+    interval            = 60
     port                = 8000
     healthy_threshold   = 2
     unhealthy_threshold = 3
