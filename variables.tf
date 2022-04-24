@@ -64,9 +64,9 @@ variable "domain_name" {
 #############
 ## Gateway ##
 #############
-variable "iam_role_arn" {
+variable "iam_role_name" {
   type        = string
-  description = "The ARN of the IAM role to attach to the gateway.  Should correspond to the bound ARN of the admin access id"
+  description = "The name of the role to create for the Gateway.  Should correspond to the bound role name of the admin access id."
 }
 
 variable "admin_access_id" {

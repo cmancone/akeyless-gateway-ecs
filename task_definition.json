@@ -1,5 +1,6 @@
 [
   {
+    "executionRoleArn": "${taskExectionRoleARN}",
     "portMappings": [
       {
         "hostPort": 8000,

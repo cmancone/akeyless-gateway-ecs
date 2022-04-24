@@ -41,13 +41,14 @@ data "template_file" "container_definitions" {
   template = file("${path.module}/task_definition.json")
 
   vars = {
-    name               = var.name
-    region             = var.region
-    domain_name        = var.domain_name
-    admin_access_id    = var.admin_access_id
-    allowed_access_ids = var.allowed_access_ids
-    admin_access_key   = var.admin_access_key
-    admin_password     = var.admin_password
+    name                = var.name
+    region              = var.region
+    domain_name         = var.domain_name
+    admin_access_id     = var.admin_access_id
+    allowed_access_ids  = var.allowed_access_ids
+    admin_access_key    = var.admin_access_key
+    admin_password      = var.admin_password
+    taskExectionRoleARN = aws_iam_role.ecs_task_execution_role.arn
   }
 }
 
