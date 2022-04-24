@@ -53,7 +53,8 @@
         { "name" : "CLUSTER_NAME", "value" : "${name}" },
         { "name" : "ADMIN_ACCESS_ID", "value" : "${admin_access_id}" },
         { "name" : "ALLOWED_ACCESS_IDS", "value" : "${allowed_access_ids}" },
-        { "name" : "ADMIN_ACCESS_TYPE", "value" : "AWS_IAM" }
+        { "name" : "ADMIN_ACCESS_TYPE", "value" : "AWS_IAM" },
+        { "name" : "ACCESS_TYPE", "value" : "AWS_IAM" }
     ],
     "logConfiguration": {
       "logDriver": "awslogs",
