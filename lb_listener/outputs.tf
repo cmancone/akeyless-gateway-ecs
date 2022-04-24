@@ -1,5 +1,5 @@
 output "target_group_arn" {
-  value = aws_lb_target_group.http.arn
+  value = aws_lb_target_group.https.arn
 }
 
 output "internet_port" {
