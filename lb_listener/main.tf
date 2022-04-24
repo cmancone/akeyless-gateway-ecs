@@ -1,7 +1,7 @@
-resource "aws_lb_target_group" "http" {
+resource "aws_lb_target_group" "https" {
   name        = "${var.name}-${var.container_port}"
   port        = var.container_port
-  protocol    = "HTTP"
+  protocol    = "HTTPS"
   vpc_id      = var.vpc_id
   target_type = "ip"
 
@@ -11,6 +11,7 @@ resource "aws_lb_target_group" "http" {
     port                = 8000
     healthy_threshold   = 2
     unhealthy_threshold = 3
+    protocol            = "HTTPS"
   }
 
   tags = merge(var.tags, {
@@ -27,7 +28,7 @@ resource "aws_lb_listener" "https" {
 
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.http.arn
+    target_group_arn = aws_lb_target_group.https.arn
   }
 
   tags = merge(var.tags, {
