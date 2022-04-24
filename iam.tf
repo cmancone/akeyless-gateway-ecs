@@ -62,7 +62,7 @@ data "aws_iam_policy_document" "logging_permissions" {
 }
 
 resource "aws_iam_role_policy" "logging_permissions" {
-  name   = "ssm"
+  name   = "logging"
   role   = aws_iam_role.ecs_task_execution_role.id
   policy = data.aws_iam_policy_document.logging_permissions.json
 }
@@ -78,7 +78,7 @@ data "aws_iam_policy_document" "assume_role" {
 }
 
 resource "aws_iam_role_policy" "assume_role" {
-  name   = "ssm"
+  name   = "assume_role"
   role   = aws_iam_role.ecs_task_execution_role.id
   policy = data.aws_iam_policy_document.assume_role.json
 }
