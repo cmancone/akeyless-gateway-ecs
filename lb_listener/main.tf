@@ -1,7 +1,7 @@
 resource "aws_lb_target_group" "https" {
   name        = "${var.name}-${var.container_port}"
   port        = var.container_port
-  protocol    = "HTTPS"
+  protocol    = "HTTP"
   vpc_id      = var.vpc_id
   target_type = "ip"
 
@@ -11,7 +11,7 @@ resource "aws_lb_target_group" "https" {
     port                = 8000
     healthy_threshold   = 2
     unhealthy_threshold = 3
-    protocol            = "HTTPS"
+    protocol            = "HTTP"
   }
 
   tags = merge(var.tags, {
