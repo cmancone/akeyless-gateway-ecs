@@ -33,18 +33,6 @@
         "protocol": "tcp"
       }
     ],
-    "mountPoints": [
-      {
-        "readOnly": null,
-        "containerPath": "/var/akeyless/conf",
-        "sourceVolume": "config-storage"
-      },
-      {
-        "readOnly": null,
-        "containerPath": "/var/log/akeyless",
-        "sourceVolume": "log-storage"
-      }
-    ],
     "essential": true,
     "name": "${name}",
     "image": "akeyless/base",
