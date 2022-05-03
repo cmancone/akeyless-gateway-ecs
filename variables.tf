@@ -39,7 +39,7 @@ variable "private_subnet_ids" {
 variable "gateway_ports" {
   type        = map(number)
   description = "A map for port mapping.  The key tells what port to open on the ALB and the value is which port to route it to on the gateway."
-  default     = { 8000 : 8000, 18888 : 18888, 8200 : 8200, 8080 : 8080, 5696 : 5696 }
+  default     = { 8000 : 8000, 18888 : 18888, 8200 : 8200, 8080 : 8080, 8081 : 8081, 5696 : 5696 }
 }
 
 variable "security_group_allowed_cidr_blocks" {
@@ -72,6 +72,12 @@ variable "iam_role_name" {
 variable "admin_access_id" {
   type        = string
   description = "The access id that the AKeyless Gateway will use to authenticate itself to AKeyless (see https://docs.akeyless.io/docs/install-and-configure-the-gateway)"
+}
+
+variable "admin_access_id_type" {
+  type        = string
+  description = "The access type that the AKeyless Gateway will use to authenticate itself to AKeyless (see https://docs.akeyless.io/docs/install-and-configure-the-gateway)"
+  default     = "aws_iam"
 }
 
 variable "admin_access_key" {
