@@ -52,13 +52,13 @@ data "aws_route53_zone" "gateway" {
 }
 
 resource "aws_route53_record" "gateway" {
-  zone_id = data.aws_route53_zone.gateway.zone_id
+  zone_id = var.dns_zone_id != "" ? var.dns_zone_id : data.aws_route53_zone.gateway.zone_id
   name    = var.domain_name
   type    = "A"
 
   alias {
-    name                   = aws_lb.gateway.dns_name
-    zone_id                = aws_lb.gateway.zone_id
+    name                   = lower(aws_lb.gateway.dns_name)
+    zone_id                = var.dns_zone_id != "" ? var.dns_zone_id : data.aws_route53_zone.gateway.zone_id
     evaluate_target_health = true
   }
 }

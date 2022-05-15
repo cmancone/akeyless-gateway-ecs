@@ -61,6 +61,12 @@ variable "domain_name" {
   description = "The name of the domain to host the gateway on"
 }
 
+variable "dns_zone_id" {
+  type        = string
+  description = "The zone ID.  If not provided, it will be looked up from the hosted zone name"
+  default     = ""
+}
+
 #############
 ## Gateway ##
 #############
