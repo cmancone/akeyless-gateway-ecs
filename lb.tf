@@ -58,7 +58,7 @@ resource "aws_route53_record" "gateway" {
 
   alias {
     name                   = lower(aws_lb.gateway.dns_name)
-    zone_id                = var.dns_zone_id != "" ? var.dns_zone_id : data.aws_route53_zone.gateway.zone_id
+    zone_id                = aws_lb.gateway.zone_id
     evaluate_target_health = true
   }
 }
