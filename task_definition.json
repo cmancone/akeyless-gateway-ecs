@@ -33,6 +33,13 @@
         "protocol": "tcp"
       }
     ],
+    "ulimits": [
+      {
+        "name": "nofile",
+        "softLimit": 1024000,
+        "hardLimit": 1024000
+      }
+    ],
     "essential": true,
     "name": "${name}",
     "image": "akeyless/base",

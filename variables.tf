@@ -103,6 +103,18 @@ variable "allowed_access_ids" {
   description = "The access ids that can be used to configure the AKeyless Gateway (see https://docs.akeyless.io/docs/install-and-configure-the-gateway)"
 }
 
+variable "ecs_task_cpu" {
+  type        = string
+  description = "The amount of CPU to assign to each gateway task"
+  default     = "2048"
+}
+
+variable "ecs_task_memory" {
+  type        = string
+  description = "The amount of memory to assign to each gateway task"
+  default     = "4096"
+}
+
 ##########
 ## Misc ##
 ##########
